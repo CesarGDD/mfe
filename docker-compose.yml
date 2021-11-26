@@ -1,0 +1,22 @@
+version: '3'
+services:
+  react-host:
+    build: ./react-host
+    ports:
+      - '8081:80'
+    environment:
+      - REMOTE_ONE=localhost
+      - REMOTE_TWO=localhost
+      - REACT_HOST=localhost
+  remote:
+    build: ./remote
+    ports:
+      - '3000:80'
+    environment:
+      - REMOTE_ONE=localhost
+  remote-two:
+    build: ./remote-two
+    ports:
+      - '3001:80'
+    environment:
+      - REMOTE_TWO=localhost

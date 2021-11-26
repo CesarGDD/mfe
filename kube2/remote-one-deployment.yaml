@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: remote-one-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: remote-one
+  template:
+    metadata:
+      labels:
+        app: remote-one
+    spec:
+      containers:
+        - name: remote-one
+          image: cesargdd/kub-remote-one:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REMOTE_ONE
+              value: "remote-one-service.default"

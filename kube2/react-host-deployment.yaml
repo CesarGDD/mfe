@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-host-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-host
+  template:
+    metadata:
+      labels:
+        app: react-host
+    spec:
+      containers:
+        - name: react-host
+          image: cesargdd/kub-react-host:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: REMOTE_ONE
+              value: "remote-one-service.default"
+            - name: REMOTE_TWO
+              value: "remote-one-service.default"
+            - name: REACT_HOST
+              value: "react-host-service.default"

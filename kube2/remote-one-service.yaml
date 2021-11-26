@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: remote-one-service
+  labels:
+    run: remote-one
+spec:
+  selector:
+    app: remote-one
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
