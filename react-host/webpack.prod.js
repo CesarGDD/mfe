@@ -1,8 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const path = require('app-root-path');
 
-const filePath = path;
+const domain = 'https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/'
 
 const deps = require("./package.json").dependencies;
 module.exports = {
@@ -45,8 +44,8 @@ module.exports = {
       name: "react_host",
       filename: "remoteEntry.js",
       remotes: {
-        remote: `remote@${filePath}/files/remote-one/remoteEntry.js`,
-        remote_two: `remote_two@${filePath}/files/remote-two/remoteEntry.js`
+        remote: `remote@${domain}/remote/remoteEntry.js`,
+        remote_two: `remote_two@${domain}/remote-two/remoteEntry.js`
       },
       exposes: {},
       shared: {
