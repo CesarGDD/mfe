@@ -6,7 +6,7 @@ module.exports = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: `/remote-two/dist/`
+    publicPath: `https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/remote-two/dist/`
   },
 
   resolve: {

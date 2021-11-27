@@ -1,15 +1,15 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
-const domain = 'https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/'
+const domainOne = 'https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/remote/'
+const domainTwo = 'https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/remote-two/'
 
 const deps = require("./package.json").dependencies;
 module.exports = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        // path: path.resolve(__dirname, './dist'),
-        publicPath: `/`
+        publicPath: `https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/rect-host/dist/`
   },
 
   resolve: {
@@ -44,8 +44,8 @@ module.exports = {
       name: "react_host",
       filename: "remoteEntry.js",
       remotes: {
-        remote: `remote@${domain}/remote/remoteEntry.js`,
-        remote_two: `remote_two@${domain}/remote-two/remoteEntry.js`
+        remote: `remote@${domainOne}dist/remoteEntry.js`,
+        remote_two: `remote_two@${domainTwo}dist/remoteEntry.js`
       },
       exposes: {},
       shared: {
