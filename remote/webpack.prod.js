@@ -6,7 +6,6 @@ module.exports = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    // path: path.resolve(__dirname, './dist'),
     publicPath: `https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/remote/dist/`
   },
 

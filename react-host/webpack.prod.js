@@ -9,7 +9,7 @@ module.exports = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: `https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/rect-host/dist/`
+        // publicPath: `https://cdn.jsdelivr.net/gh/CesarGDD/mfe@latest/rect-host/dist/`
   },
 
   resolve: {
